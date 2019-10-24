@@ -24,4 +24,4 @@ Try the interactive [demo](http://130.63.97.192/WB_for_srgb_rendered_images/demo
 
 
 ### Project page
-For more information, please our [project page](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/index.html)
+For more information, please visit our [project page](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/index.html)
