@@ -53,7 +53,7 @@ but the scaling option gives compelling results in some cases (esp., with high-s
 5. `upgraded_model` and `upgraded`: To load our upgraded model, use `upgraded_model=1` in Matlab or `upgraded=1` in Python. The upgraded model has new training examples. In our paper results, we did not use this model. However, our online [demo](http://130.63.97.192/WB_for_srgb_rendered_images/demo.php) uses it. 
 
 ### Dataset
-In the paper, we mentioned that our dataset is over 65,000 images. We added two additional sets of rendered images, for a total of 10,5638 rendered images. 
+In the paper, we mentioned that our dataset is over 65,000 images. We added two additional sets of rendered images, for a total of 105,638 rendered images. 
 You can download our dataset from [here](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/dataset.html).
 
 
