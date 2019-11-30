@@ -34,6 +34,3 @@ def calc_mae(source, target, color_chart_area):
     f = f * 180/np.pi
     return sum(f)/(L - color_chart_area)
 
-#################################################
-# References:
-# [1] http://zschuessler.github.io/DeltaE/learn/

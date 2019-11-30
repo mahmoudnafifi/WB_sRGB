@@ -25,6 +25,3 @@ def calc_mse(source, target, color_chart_area):
     mse = sum(np.power((source-target),2))
     return mse/((np.shape(source)[0]) - color_chart_area) # yes, color_chart_area x 3 makes more sense :-), we used this to evaluate all methods
 
-#################################################
-# References:
-# [1] http://zschuessler.github.io/DeltaE/learn/
