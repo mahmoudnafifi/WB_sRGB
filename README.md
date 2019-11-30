@@ -25,6 +25,7 @@ The differences should be due to rounding errors when we converted our model to 
 #### Quick start
 
 ##### 1. Matlab:
+[![View Image white balancing on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/73428-image-white-balancing)
 1. Run `install_.m`
 2. Run `demo.m` to process a single image or `demo_images.m` to process all images in a directory.
 3. Check `evaluation_examples.m` for examples of reporting errors using different evaluation metrics. Also, this code includes an example of how to hide the color chart for Set1 images.
