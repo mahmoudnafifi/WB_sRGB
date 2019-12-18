@@ -51,9 +51,9 @@ def deltaE2000(Labstd, Labsample):
     Cpstd = np.sqrt(np.power(apstd, 2) + np.power(bstd, 2))
     Cpprod = (Cpsample * Cpstd)
     zcidx = np.argwhere(Cpprod == 0)
-    hpstd = np.arctan2(bstd,apstd)  # check it
+    hpstd = np.arctan2(bstd,apstd)
     hpstd[np.argwhere((np.abs(apstd) + np.abs(bstd)) == 0)] = 0
-    hpsample = np.arctan2(bsample, apsample)  # check it
+    hpsample = np.arctan2(bsample, apsample)
     hpsample = hpsample + 2 * np.pi * (hpsample < 0)
     hpsample[np.argwhere((np.abs(apsample) + np.abs(bsample)) == 0)] = 0
     dL = (Lsample - Lstd)
