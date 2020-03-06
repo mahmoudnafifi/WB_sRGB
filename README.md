@@ -2,8 +2,7 @@
 *[Mahmoud Afifi](https://sites.google.com/view/mafifi)*<sup>1</sup>, *[Brian Price](https://www.brianpricephd.com/)*<sup>2</sup>, *[Scott Cohen](https://research.adobe.com/person/scott-cohen/)*<sup>2</sup>, and *[Michael S. Brown](http://www.cse.yorku.ca/~mbrown/)*<sup>1</sup>
 <br></br><sup>1</sup>York University  <sup>2</sup>Adobe Research
 
-
-<img src="https://drive.google.com/uc?export=view&id=1I4BxNthJHYP4SwA7ZNX32Ch4AozUJkAg" style="width: 350px; max-width: 100%; height: auto"/>
+![WB_sRGB_fig1](https://user-images.githubusercontent.com/37669469/76103171-3d3bf600-5f9f-11ea-9267-db077e7ddb51.jpg)
 
 Reference code for the paper [When Color Constancy Goes Wrong:
 Correcting Improperly White-Balanced Images.](http://openaccess.thecvf.com/content_CVPR_2019/papers/Afifi_When_Color_Constancy_Goes_Wrong_Correcting_Improperly_White-Balanced_Images_CVPR_2019_paper.pdf) Mahmoud Afifi, Brian Price, Scott Cohen, and Michael S. Brown, CVPR 2019. If you use this code or our dataset, please cite our paper:
@@ -40,9 +39,8 @@ The differences should be due to rounding errors when we converted our model to 
 We provide a Matlab GUI to help tuning our parameters in an interactive way. Please, check `demo_GPU.m`.
 
 <p align="center">
-<img src="https://drive.google.com/uc?export=view&id=15a1tUkoa1u_7pH0zS7byCNOH9oiB5Ty_" width="650" align="middle"/>
+  <img https://user-images.githubusercontent.com/37669469/76103283-6c526780-5f9f-11ea-9f2c-ad9d87d95fb7.gif>
 </p>
-
 
 
 #### Code/GUI parameters and options
