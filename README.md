@@ -1,6 +1,6 @@
 # When Color Constancy Goes Wrong: Correcting Improperly White-Balanced Images
 *[Mahmoud Afifi](https://sites.google.com/view/mafifi)*<sup>1</sup>, *[Brian Price](https://www.brianpricephd.com/)*<sup>2</sup>, *[Scott Cohen](https://research.adobe.com/person/scott-cohen/)*<sup>2</sup>, and *[Michael S. Brown](http://www.cse.yorku.ca/~mbrown/)*<sup>1</sup>
-<br></br><sup>1</sup>York University  <sup>2</sup>Adobe Research
+<br></br><sup>1</sup>York University &nbsp;&nbsp; <sup>2</sup>Adobe Research
 
 ![WB_sRGB_fig1](https://user-images.githubusercontent.com/37669469/76103171-3d3bf600-5f9f-11ea-9267-db077e7ddb51.jpg)
 
