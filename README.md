@@ -62,4 +62,12 @@ Try the interactive [demo](http://130.63.97.192/WB_for_srgb_rendered_images/demo
 ### Project page
 For more information, please visit our [project page](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/index.html)
 
+
+### Related Research Projects
+- [White-Balance Augmenter](https://github.com/mahmoudnafifi/WB_color_augmenter): Emulating white balance effects for color augmentation. It can improve results of image classification and image semantic segmentation (ICCV 2019).
+ - [Color Temperature Tuning](https://github.com/mahmoudnafifi/ColorTempTuning): A camera pipeline that allows accurate post-capture white balance editing (CIC best paper award, 2019).
+ - [SIIE](https://github.com/mahmoudnafifi/SIIE): A sensor-independent deep learning framework for illumination estimation (BMVC 2019).
+
+
+### Commercial Use
 This software is provided for research purposes only. A license must be obtained for any commercial application.
