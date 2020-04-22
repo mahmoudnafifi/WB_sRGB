@@ -64,7 +64,7 @@ For more information, please visit our [project page](http://cvil.eecs.yorku.ca/
 
 
 ### Related Research Projects
-- [White-Balance Augmenter](https://github.com/mahmoudnafifi/WB_color_augmenter): Emulating white balance effects for color augmentation. It can improve results of image classification and image semantic segmentation (ICCV 2019).
+- [White-Balance Augmenter](https://github.com/mahmoudnafifi/WB_color_augmenter): Emulating white balance effects for color augmentation. It improves image classification and image semantic segmentation results (ICCV 2019).
  - [Color Temperature Tuning](https://github.com/mahmoudnafifi/ColorTempTuning): A camera pipeline that allows accurate post-capture white balance editing (CIC best paper award, 2019).
  - [SIIE](https://github.com/mahmoudnafifi/SIIE): A sensor-independent deep learning framework for illumination estimation (BMVC 2019).
  - [Deep White-Balance Editing](https://github.com/mahmoudnafifi/Deep_White_Balance): A multi-task deep learning model for post-capture white-balance editing (CVPR 2020).
