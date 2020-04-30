@@ -37,8 +37,10 @@ The differences should be due to rounding errors when we converted our model to 
 
 #### Graphical user interface
 We provide a Matlab GUI to help tuning our parameters in an interactive way. Please, check `demo_GPU.m`.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37669469/76103283-6c526780-5f9f-11ea-9f2c-ad9d87d95fb7.gif">
+</p>
 
-![WB_sRGB_GUI](https://user-images.githubusercontent.com/37669469/76103283-6c526780-5f9f-11ea-9f2c-ad9d87d95fb7.gif)
 
 
 
