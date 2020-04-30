@@ -73,4 +73,4 @@ For more information, please visit our [project page](http://cvil.eecs.yorku.ca/
  - [Deep White-Balance Editing](https://github.com/mahmoudnafifi/Deep_White_Balance): A multi-task deep learning model for post-capture white-balance editing (CVPR 2020).
 
 ### Commercial Use
-This software is provided for research purposes only. A license must be obtained for any commercial application.
+This software and the dataset are provided for research purposes only. A license must be obtained for any commercial application.
