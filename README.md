@@ -57,7 +57,21 @@ but the scaling option gives compelling results in some cases (esp., with high-s
 ![dataset](https://user-images.githubusercontent.com/37669469/80766673-f3413d80-8b13-11ea-98f2-9dcebaa481d2.png)
 
 In the paper, we mentioned that our dataset contains over 65,000 images. We further added two additional sets of rendered images, for a total of 105,638 rendered images. 
-You can download our dataset from [here](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/dataset.html).
+You can download our dataset from [here](http://cvil.eecs.yorku.ca/projects/public_html/sRGB_WB_correction/dataset.html). You can also download the dataset from the following links:
+
+Input images: [Part1](https://ln2.sync.com/dl/df390d230/bcxms94b-fh7wiwb2-cjv22e95-ijqq8pry) | [Part2](https://ln2.sync.com/dl/a91b94bf0/frnsyykq-z3hhmjkj-adrxqj3h-v6v8637z/view/default/9967673500008) | [Part3](https://ln2.sync.com/dl/98719b4f0/i9zh42sd-7isdxqvh-rbrhgxbc-z7adicv4) | [Part4](https://ln2.sync.com/dl/07b36ff40/xrfe55mc-zjda4wp7-67jxgug4-7cjw5qda) | [Part5](https://ln2.sync.com/dl/7f8be8910/bwnahjub-ttystr9d-dnvu2wuj-gez7enha) | [Part6](https://ln2.sync.com/dl/a80481330/27zamddw-e6zezbpt-erqt5e3a-5x7we5uj) | [Part7](https://ln2.sync.com/dl/c647defb0/k824nusp-nb964z7f-xd6q79i7-v7j8w3z9) | [Part8](https://ln2.sync.com/dl/b0433ce80/4gbk7q9q-b96s62vi-qektmg5t-akqhueen) | [Part9](https://ln2.sync.com/dl/271048960/f2c4gr6m-9frsuuc7-g5r47tzh-4s8m55tk) | [Part10](https://ln2.sync.com/dl/21ce83f60/v36jwspj-e4mw2vtb-s6ifkgmv-jzc8mvya)
+
+Input images (without color chart pixels): [Part1](https://ln2.sync.com/dl/bd8d95590/jnd4k56e-firy4vq7-8rdjucac-zfr8a47f/view/default/9967673050008) | [Part2](https://ln2.sync.com/dl/e99ba85e0/3t3wyk8n-u5c5cc7v-xr5yzh9x-wz69u97d) | [Part3](https://ln2.sync.com/dl/76cf59c80/hk7vazpq-g3tqrnt2-3ptcqw8y-fmwtdzzx) | [Part4](https://ln2.sync.com/dl/428149ef0/r5e6ahwr-ubhqugd6-bendw5ac-cdyvif99) | [Part5](https://ln2.sync.com/dl/5bc462790/y2nkwaue-z6jvs798-7gps6k8m-nhq7z89b) | [Part6](https://ln2.sync.com/dl/c659fee90/unka53m7-gxf2hmpw-ts3fqewc-9a7ekhf6) | [Part7](https://ln2.sync.com/dl/945b316e0/xzsq94w2-k4t4bfut-a7r2qh2d-y683fgk8) | [Part8](https://ln2.sync.com/dl/997b2b460/ig8rnuhc-e488k3y2-9j7iwva5-vv4siwp4) | [Part9](https://ln2.sync.com/dl/d69b8cb70/455f389w-jpzt2pm8-2f7pgdz8-g4dwqexm) | [Part10](https://ln2.sync.com/dl/c35a43450/gdrfdgz2-a34fjigz-5pwmgcth-2hw3ztvb)
+
+Augmented images (without color chart pixels): [Download](https://ln2.sync.com/dl/fd890f450/qptvg83f-h5evnawu-62ksiv99-jjmtiwyv) (rendered with additional/rare color temperatures)
+
+Ground-truth images: [Download](https://ln2.sync.com/dl/1f607c380/ypyw5z4p-q765pviu-rc8tzi2n-4pyyep8h)
+
+Ground-truth images (without color chart pixels): [Download](https://ln2.sync.com/dl/afb9c68a0/kzbvche9-wfqfddjx-462f8xdv-pncntp8g/view/default/9967672880008)
+
+Metadata files: [Input images](https://ln2.sync.com/dl/1ecab3360/e452ufey-6q23a2mn-bgnxu5x8-cu2hmj8f/view/default/9967672840008) | [Ground-truth images](https://ln2.sync.com/dl/e386982f0/9t49ej9n-db6bmkr9-gaactnii-kbyua7gn)
+
+Folds: [Download](https://ln2.sync.com/dl/16e553bc0/s7eyufdq-h4i82udv-m4t3jp73-cc98jeze)
 
 
 ### Online demo
