@@ -90,8 +90,7 @@ class WBsRGB:
             diff_u[diff_u != 0] = 1  # remaining pixels will be counted
             diff_v[diff_v >= (eps / 2)] = 0  # do not count any pixel has difference beyond the threshold in the v space
             diff_v[diff_v != 0] = 1  # remaining pixels will be counted
-            # here, we will use a matrix multiplication expression to compute eq. 4 in the main paper.
-            # why? because it is much faster
+            # here, we use a matrix multiplication expression to compute eq. 4 in the main paper.
             temp = (np.matlib.repmat(Iy, np.size(A), 1) * (diff_u).transpose())  # Iy .* diff_u' (.* element-wise mult)
             hist[:, :, i] = np.dot(temp, diff_v)  # initialize current histogram layer with Iy .* diff' * diff_v
             norm_ = np.sum(hist[:, :, i], axis=None)  # compute sum of hist for normalization
