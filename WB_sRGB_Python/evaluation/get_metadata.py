@@ -22,9 +22,10 @@ import re
 
 def get_metadata(fileName, set, metadata_baseDir=''):
     """
-    gets metadata (e.g., ground-truth file name, chart coordinates and area).
+    Gets metadata (e.g., ground-truth file name, chart coordinates and area).
     :param fileName: input filename
-    :param set: which dataset?--options includes: 'RenderedWB_Set1', 'RenderedWB_Set2', 'Rendered_Cube+'
+    :param set: which dataset?--options includes: 'RenderedWB_Set1',
+      'RenderedWB_Set2', 'Rendered_Cube+'
     :param metadata_baseDir: metadata directory (required for Set1 only)
     :return: metadata for a given image
     evaluation_examples.py provides some examples of how to use it
@@ -41,13 +42,15 @@ def get_metadata(fileName, set, metadata_baseDir=''):
         C = f.read()
         colors = np.zeros((3, 24))  # color chart colors
         temp = re.split(',|\n', C)
-        colors = np.reshape(np.asfarray(temp[:-1], float), (24, 3)).transpose() # 3 x 24 colors in the color chart
+        # 3 x 24 colors in the color chart
+        colors = np.reshape(np.asfarray(temp[:-1], float), (24, 3)).transpose()
         # get coordinate info
         f = open(os.path.join(metadata_baseDir, metadatafile_mask), 'r')
         C = f.read()
         temp = re.split(',|\n', C)
-        temp = temp[0:4] # take only the first 4 elements (that represent the color chart coordinates)
-        mask = np.asfarray(temp, float) # color chart mask coordinates
+        # take only the first 4 elements (i.e., the color chart coordinates)
+        temp = temp[0:4]
+        mask = np.asfarray(temp, float)  # color chart mask coordinates
         # get ground-truth file name
         seperator = '_'
         temp = name.split(seperator)
@@ -56,19 +59,23 @@ def get_metadata(fileName, set, metadata_baseDir=''):
         # compute mask area
         mask_area = mask[2] * mask[3]
         # final metadata
-        data = {"gt_filename": gt_file, "cc_colors": colors, "cc_mask": mask, "cc_mask_area": mask_area}
+        data = {"gt_filename": gt_file, "cc_colors": colors, "cc_mask": mask,
+                "cc_mask_area": mask_area}
 
     elif set == 'RenderedWB_Set2': # Rendered WB dataset (Set2)
-        data = {"gt_filename": name + file_extension, "cc_colors": None, "cc_mask": None, "cc_mask_area": 0}
+        data = {"gt_filename": name + file_extension, "cc_colors": None,
+                "cc_mask": None, "cc_mask_area": 0}
 
     elif set == 'Rendered_Cube+': # Rendered Cube+
         # get ground-truth filename
         temp = name.split('_')
         gt_file = temp[0] + file_extension
         mask_area = 58373  # calibration obj's area is fixed over all images
-        data = {"gt_filename": gt_file, "cc_colors": None, "cc_mask": None, "cc_mask_area": mask_area}
+        data = {"gt_filename": gt_file, "cc_colors": None, "cc_mask": None,
+                "cc_mask_area": mask_area}
     else:
-        raise Exception("Invalid value for set variable. " +
-                        "Please use: 'RenderedWB_Set1', 'RenderedWB_Set2', 'Rendered_Cube+'")
+        raise Exception(
+            "Invalid value for set variable. " +
+            "Please use: 'RenderedWB_Set1', 'RenderedWB_Set2', 'Rendered_Cube+'")
 
     return data
