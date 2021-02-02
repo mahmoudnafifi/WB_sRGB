@@ -50,7 +50,7 @@ We provide a Matlab GUI to help tuning our parameters in an interactive way. Ple
 3. `device`: GPU or CPU (provided for Matlab version only).
 4. `gamut_mapping`: Mapping pixels in-gamut either using scaling (`gamut_mapping= 1`) or clipping  (`gamut_mapping= 2`). In the paper, we used the clipping options to report our results, 
 but the scaling option gives compelling results in some cases (esp., with high-saturated/vivid images). 
-5. `upgraded_model` and `upgraded`: To load our upgraded model, use `upgraded_model=1` in Matlab or `upgraded=1` in Python. The upgraded model has new training examples. In our paper results, we did not use this model. However, our online [demo](http://130.63.97.192/WB_for_srgb_rendered_images/demo.php) uses it. 
+5. `upgraded_model` and `upgraded`: To load our upgraded model, use `upgraded_model=1` in Matlab or `upgraded=1` in Python. The upgraded model has new training examples. In our paper results, we did not use this model.
 
 ### Dataset
 
