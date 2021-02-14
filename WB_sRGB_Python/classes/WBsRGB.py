@@ -64,17 +64,10 @@ class WBsRGB:
       newH = int(np.floor(sz[0] * factor))
       newW = int(np.floor(sz[1] * factor))
       I = cv2.resize(I, (newW, newH), interpolation=cv2.INTER_NEAREST)
-    II = I.reshape(int(I.size / 3), 3)  # n*3
-    inds = np.where((II[:, 0] > 0) & (II[:, 1] > 0) & (II[:, 2] > 0))
-    R = II[inds, 0]  # red channel
-    G = II[inds, 1]  # green channel
-    B = II[inds, 2]  # blue channel
-    I_reshaped = np.concatenate((R, G, B), axis=0).transpose()
+    I_reshaped = I[(I > 0).all(axis=2)]
     eps = 6.4 / self.h
-    A = np.arange(-3.2, 3.19, eps)  # dummy vector
-    hist = np.zeros((A.size, A.size, 3))  # histogram will be stored here
-    Iy = np.sqrt(I_reshaped[:, 0] ** 2 + I_reshaped[:, 1] ** 2 +
-                 I_reshaped[:, 2] ** 2)  # intensity vector
+    hist = np.zeros((self.h, self.h, 3))  # histogram will be stored here
+    Iy = np.linalg.norm(I_reshaped, axis=1)  # intensity vector
     for i in range(3):  # for each histogram layer, do
       r = []  # excluded channels will be stored here
       for j in range(3):  # for each color channel do
@@ -82,30 +75,23 @@ class WBsRGB:
           r.append(j)
       Iu = np.log(I_reshaped[:, i] / I_reshaped[:, r[1]])
       Iv = np.log(I_reshaped[:, i] / I_reshaped[:, r[0]])
-      diff_u = np.abs(np.matlib.repmat(Iu, np.size(A), 1).transpose() -
-                      np.matlib.repmat(A, np.size(Iu), 1))
-      diff_v = np.abs(np.matlib.repmat(Iv, np.size(A), 1).transpose() -
-                      np.matlib.repmat(A, np.size(Iv), 1))
-      diff_u[diff_u >= (eps / 2)] = 0
-      diff_u[diff_u != 0] = 1
-      diff_v[diff_v >= (eps / 2)] = 0
-      diff_v[diff_v != 0] = 1
-
-      # Matrix multiplication expression to compute eq. 4 in the main paper.
-      # Iy * diff_u' (element-wise mult)
-      temp = (np.matlib.repmat(Iy, np.size(A), 1) * diff_u.transpose())
-      # initialize current histogram layer with Iy .* diff' * diff_v
-      hist[:, :, i] = np.dot(temp, diff_v)
-      # compute sum of hist for normalization
-      norm_ = np.sum(hist[:, :, i], axis=None)
+      hist[:, :, i], _, _ = np.histogram2d(
+        Iu, Iv, bins=self.h, range=((-3.2 - eps / 2, 3.2 - eps / 2),) * 2, weights=Iy)
+      norm_ = hist[:, :, i].sum()
       hist[:, :, i] = np.sqrt(hist[:, :, i] / norm_)  # (hist/norm)^(1/2)
     return hist
 
   def correctImage(self, I):
     """ White balance a given image I. """
-    I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)  # convert from BGR to RGB
+    I = I[..., ::-1]  # convert from BGR to RGB
     I = im2double(I)  # convert to double
+    # Convert I to float32 may speed up the process.
     feature = self.encode(self.rgb_uv_hist(I))
+    # Do
+    # ```python
+    # feature_diff = self.features - feature
+    # D_sq = np.einsum('ij,ij->i', feature_diff, feature_diff)[:, None]
+    # ```
     D_sq = np.einsum(
       'ij, ij ->i', self.features, self.features)[:, None] + np.einsum(
       'ij, ij ->i', feature, feature) - 2 * self.features.dot(feature.T)
@@ -116,7 +102,6 @@ class WBsRGB:
     dH = np.sqrt(
       np.take_along_axis(D_sq, idH, axis=0))
     sorted_idx = dH.argsort(axis=0)  # get sorting indices
-    idH = np.take_along_axis(idH, sorted_idx, axis=0)  # sort distance inds
     dH = np.take_along_axis(dH, sorted_idx, axis=0)  # sort distances
     weightsH = np.exp(-(np.power(dH, 2)) /
                       (2 * np.power(self.sigma, 2)))  # compute weights
@@ -143,7 +128,7 @@ class WBsRGB:
       raise Exception('Wrong gamut_mapping value')
     # reshape output image back to the original image shape
     out = out.reshape(sz[0], sz[1], sz[2], order="F")
-    out = cv2.cvtColor(out.astype('float32'), cv2.COLOR_RGB2BGR)
+    out = out.astype('float32')[..., ::-1]  # convert from BGR to RGB
     return out
 
 
@@ -163,11 +148,10 @@ def kernelP(I):
         Ref: Hong, et al., "A study of digital camera colorimetric
           characterization based on polynomial modeling." Color Research &
           Application, 2001. """
-  return (np.transpose(
-    (I[:, 0], I[:, 1], I[:, 2], I[:, 0] * I[:, 1], I[:, 0] * I[:, 2],
-     I[:, 1] * I[:, 2], I[:, 0] * I[:, 0], I[:, 1] * I[:, 1],
-     I[:, 2] * I[:, 2], I[:, 0] * I[:, 1] * I[:, 2],
-     np.repeat(1, np.shape(I)[0]))))
+  rgb = I
+  r, g, b = np.split(rgb, 3, axis=1)
+  return np.concatenate(
+    [rgb, r * g, r * b, g * b, rgb ** 2, r * g * b, np.ones_like(r)], axis=1)
 
 
 def outOfGamutClipping(I):
