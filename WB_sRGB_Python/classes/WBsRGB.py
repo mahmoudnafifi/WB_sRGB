@@ -143,12 +143,11 @@ def normScaling(I, I_corr):
   return I_corr
 
 
-def kernelP(I):
+def kernelP(rgb):
   """ Kernel function: kernel(r, g, b) -> (r,g,b,rg,rb,gb,r^2,g^2,b^2,rgb,1)
         Ref: Hong, et al., "A study of digital camera colorimetric
           characterization based on polynomial modeling." Color Research &
           Application, 2001. """
-  rgb = I
   r, g, b = np.split(rgb, 3, axis=1)
   return np.concatenate(
     [rgb, r * g, r * b, g * b, rgb ** 2, r * g * b, np.ones_like(r)], axis=1)
