@@ -101,8 +101,6 @@ class WBsRGB:
     mappingFuncs = np.squeeze(self.mappingFuncs[idH, :])
     dH = np.sqrt(
       np.take_along_axis(D_sq, idH, axis=0))
-    sorted_idx = dH.argsort(axis=0)  # get sorting indices
-    dH = np.take_along_axis(dH, sorted_idx, axis=0)  # sort distances
     weightsH = np.exp(-(np.power(dH, 2)) /
                       (2 * np.power(self.sigma, 2)))  # compute weights
     weightsH = weightsH / sum(weightsH)  # normalize blending weights
