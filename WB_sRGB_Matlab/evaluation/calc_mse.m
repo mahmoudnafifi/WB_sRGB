@@ -34,5 +34,5 @@ end
 source=double(source);
 target=double(target);
 diff=(source(:)-target(:)).^2;
-mse=sum(diff)/(length(diff)-color_chart_area); % yes, color_chart_area x 3 makes more sense :-), we used this to evaluate all methods
+mse=sum(diff)/(length(diff)-color_chart_area); % yes, color_chart_area x 3 makes more sense :-), but we used this (without x 3) to evaluate all methods
 end
