@@ -21,6 +21,7 @@ However, there is no guarantee that the Python version will give exactly the sam
 The differences should be due to rounding errors when we converted our model to Python or differences between Matlab and OpenCV in reading compressed images.
 
 
+
 #### Quick start
 
 ##### 1. Matlab:
@@ -80,6 +81,13 @@ Folds: [Download](https://ln2.sync.com/dl/16e553bc0/s7eyufdq-h4i82udv-m4t3jp73-c
 
 ### Online demo
 Try the interactive [demo](http://130.63.97.192/WB_for_srgb_rendered_images/demo.php) by uploading your photo or paste a URL for a photo from the web.
+
+
+### Working with videos
+You can use the provided code to process video frames separately (some flickering may occur as it does not consider temporal coherence in processing).
+
+https://user-images.githubusercontent.com/37669469/125736626-dbcebab6-5c1d-4873-b081-640172c094ab.mp4
+
 
 
 ### Project page
