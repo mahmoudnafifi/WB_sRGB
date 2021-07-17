@@ -95,3 +95,9 @@ For more information, please visit our [project page](http://cvil.eecs.yorku.ca/
 
 ### Commercial Use
 This software and the dataset are provided for research purposes only. A license must be obtained for any commercial application.
+
+
+### Related Research Projects
+- [White-Balance Augmenter](https://github.com/mahmoudnafifi/WB_color_augmenter): An augmentation technique based on camera WB errors (ICCV 2019).
+- [Deep White-Balance Editing](https://github.com/mahmoudnafifi/Deep_White_Balance): A multi-task deep learning model for post-capture white-balance correction and editing (CVPR 2020).
+- [Interactive White Balancing](https://github.com/mahmoudnafifi/Interactive_WB_correction):A simple method to link the nonlinear white-balance correction to the user's selected colors to allow interactive white-balance manipulation (CIC 2020).
