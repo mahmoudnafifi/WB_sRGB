@@ -58,13 +58,17 @@ classdef WBmodel
                 Iv=log((I(:,i))./(I(:,r(2)))); % current color channel / the second excluded channel
                 diff_u=abs(Iu-A); % differences in u space
                 diff_v=abs(Iv-A); % differences in v space
+                % for old Matlab versions:
+                % diff_u=abs(repmat(Iu,[1,size(A,2)])-repmat(A,[size(Iu,1),1]));
+                % diff_v=abs(repmat(Iv,[1,size(A,2)])-repmat(A,[size(Iv,1),1]));
                 % here, we will use a matrix multiplication expression to compute eq. 4 in the main paper.
-                % why? because it is much faster
                 diff_u=(reshape((reshape(diff_u,[],1)<=eps/2),...
                     [],size(A,2))); % don't count any pixel has difference beyond the threshold in the u space
                 diff_v=(reshape((reshape(diff_v,[],1)<=eps/2),...
                     [],size(A,2))); % similar in the v space
                 hist(:,:,i)=(Iy.*double(diff_u))'*double(diff_v); % compute the histogram 
+                % for old Matlab versions: 
+                % hist(:,:,i)=(repmat(Iy, [1, size(diff_u,2)]).* double(diff_u))'*double(diff_v); % compute the histogram 
                 hist(:,:,i)=sqrt(hist(:,:,i)/sum(sum(hist(:,:,i)))); % sqrt the histogram after normalizing
             end
             hist = imresize(hist,[h h],'bilinear');
