@@ -90,6 +90,8 @@ classdef WBmodel_GPU
             weightsH = exp(-((dH).^2)/(2*sigma^2)); % computes weights
             weightsH = weightsH/sum(weightsH); % normalizes weights
             mf = sum(weightsH .* obj.mappingFuncs(idH,:),1); % blends nearest mapping funcs
+            % for old Matlab versions:
+            % mf = sum(repmat(weightsH,[1, size(obj.mappingFuncs,2)]) .* obj.mappingFuncs(idH,:),1);
             mf = reshape(mf,[M/3,3]); % reshape to be 11x3
             [corrected, in_gamut] = obj.color_correction(I, mf, ...
                 obj.gamut_mapping); % correct image's colors
